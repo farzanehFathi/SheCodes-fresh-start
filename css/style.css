@@ -1,3 +1,113 @@
-body {
-  background-color: bisque;
+img {
+  width: 35px;
+}
+
+.app-ground {
+  border-radius: 10px;
+  width: 800px;
+  background-image: url("../images/sky-background.jpg");
+  background-size: cover;
+  margin: 10px;
+}
+
+.search-box {
+  background-color: rgba(240, 248, 255, 0.203);
+  border-radius: 5px;
+  justify-items: left;
+  text-align: left;
+}
+.navigation-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-item {
+  font-family: "Barlow", sans-serif;
+  font-size: 16px;
+  display: inline;
+  margin: 0 20px 0 0;
+}
+
+.location {
+  color: rgb(56, 60, 79);
+  font-family: "Open Sans", sans-serif;
+  font-size: 60px;
+  font-weight: 600;
+}
+
+.description {
+  color: rgb(69, 66, 66);
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+.time {
+  color: rgb(56, 60, 79);
+  font-family: "Open Sans", sans-serif;
+  font-size: 45px;
+  line-height: 72px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.date {
+  color: rgb(69, 66, 66);
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.weather-summary {
+  background-color: rgba(240, 248, 255, 0.203);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-items: left;
+  text-align: left;
+}
+
+.summary-logo {
+  width: 75px;
+  margin: auto;
+  display: block;
+}
+
+.quick-summary {
+  list-style: none;
+  color: rgb(69, 66, 66);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.air-temp {
+  color: rgb(56, 60, 79);
+  font-family: "Open Sans", sans-serif;
+  font-size: 70px;
+  font-weight: 600;
+}
+.temp-units {
+  vertical-align: top;
+  text-align: right;
+  line-height: 70px;
+  text-decoration: none;
+}
+.forecast {
+  background-color: rgba(4, 170, 54, 0.245);
+  border-radius: 0 10px 10px 0;
+}
+
+.forecast-data {
+  background-color: rgba(240, 248, 255, 0.203);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+
+  color: rgb(69, 66, 66);
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
 }
