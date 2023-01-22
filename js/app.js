@@ -119,6 +119,8 @@ function toFahrenheit(event) {
 function toCelsius(event) {
   event.preventDefault();
   let city = document.querySelector("#city-name").innerHTML;
+  document.querySelector("#temp-unit").innerHTML = "°C";
+  document.querySelector("#wind-unit").innerHTML = "Km/h";
   let unit = "metric";
   let apiURL = generateURL(city, unit);
   axios.get(apiURL).then(convertedWeather);
