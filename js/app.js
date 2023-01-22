@@ -71,10 +71,15 @@ function updateWeather(response) {
     response.data.weather[0].description;
 }
 
-function getData(city) {
+function generateURL(city, unit) {
   let apiKey = "32e12816b7e874a17bd13105b642a985";
-  let unit = "metric";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+  return apiURL;
+}
+
+function getData(city) {
+  let unit = "metric";
+  let apiURL = generateURL(city, unit);
   axios.get(apiURL).then(updateWeather);
 }
 
@@ -87,18 +92,36 @@ function searchCity(event) {
 }
 
 // ___ Convert Units  ___
-function toCelsius(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#air-temp");
-  temp.innerHTML = "-7";
+
+function convertedWeather(response) {
+  document.querySelector("#air-temp").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
+
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
 }
 
 function toFahrenheit(event) {
   event.preventDefault();
-  let temp = document.querySelector("#air-temp");
-  let tempNumber = Number(temp.innerHTML);
-  let fahrenheitTemp = Math.round((tempNumber * 9) / 5 + 32);
-  temp.innerHTML = `${fahrenheitTemp}`;
+  document.querySelector("#temp-unit").innerHTML = "°F";
+  document.querySelector("#wind-unit").innerHTML = "mph";
+  let city = document.querySelector("#city-name").innerHTML;
+  let unit = "imperial";
+  let apiURL = generateURL(city, unit);
+  axios.get(apiURL).then(convertedWeather);
+}
+
+function toCelsius(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-name").innerHTML;
+  let unit = "metric";
+  let apiURL = generateURL(city, unit);
+  axios.get(apiURL).then(convertedWeather);
 }
 
 // ---- Date and Time  ----
